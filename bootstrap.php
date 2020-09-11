@@ -2,10 +2,13 @@
 // Load composer
 require __DIR__ . '/vendor/autoload.php';
 
-use AHoffmeyer\DieLosungenBot\Controller\CsvController;
+use \AHoffmeyer\DieLosungenBot\ExecuteMessage;
 
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
 $dotenv->load();
 
-$view = new CsvController();
-echo $view->view();
+$telegram = new ExecuteMessage();
+$telegram->execute();;
+
+
+
