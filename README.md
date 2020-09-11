@@ -27,3 +27,9 @@ Simply run. The script will send todays Losung to your channel
 The CSV needs to be UTF8 encodes. Unfortunately it is not. So please run
 
 > iconv -f windows-1250 -t utf8 assets/Losungen\ Free\ 2020.csv -o Losungen_Free_2020.csv
+
+## Cronjob
+
+Create a cronjob on a daily basis e.g. everyday at 7a.m.
+
+* 7 * * * php /my/path/to/boradcast.php
