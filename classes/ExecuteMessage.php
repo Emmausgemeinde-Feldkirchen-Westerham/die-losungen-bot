@@ -31,7 +31,7 @@ class ExecuteMessage
             if ($result->isOk()) {
                 echo 'Message sent';
             } else {
-                $result->getErrorCode();
+                $result->printError();
             }
         } catch(\Exception $e) {
             throw new \Exception($e);
