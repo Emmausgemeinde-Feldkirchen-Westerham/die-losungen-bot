@@ -22,7 +22,7 @@ class ExecuteMessage
             $message = $view->view();
 
             $result = Request::sendMessage([
-                'chat_id' => -1001366652603,
+                'chat_id' => $_ENV['TELEGRAM_CHAT_ID'],
                 'text' => $message,
                 'parse_mode' => 'HTML',
                 'disable_web_page_preview' => true

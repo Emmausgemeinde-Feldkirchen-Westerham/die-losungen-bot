@@ -12,7 +12,7 @@ class CsvService
      */
     public function __construct()
     {
-        if ( ! file_exists(__DIR__ .'/../../assets/Losungen_Free_2020.csv')) {
+        if ( ! file_exists(__DIR__ .'/../../assets/Losungen_Free_'. date('Y') .'.csv')) {
             throw new Exception('File could not be found');
         }
 
