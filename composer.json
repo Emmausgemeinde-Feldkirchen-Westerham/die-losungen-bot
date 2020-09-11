@@ -1,0 +1,20 @@
+{
+    "name": "ahoffmeyer/die-losungen-bot",
+    "description": "Die Losungen der Herrenhuter Brüderunität als Telegram Bot Service",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Andreas Hoffmeyer",
+            "email": "andreas.hoffmeyer@konmatik.de"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "AHoffmeyer\\DieLosungenBot\\": "classes"
+        }
+    },
+    "require": {
+        "longman/telegram-bot": "^0.63.1"
+    }
+}
