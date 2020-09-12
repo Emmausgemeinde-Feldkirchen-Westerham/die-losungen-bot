@@ -2,6 +2,11 @@
 
 A simple Telegram bot application sending the Losungen to a specified Telegram channel.
 
+## Creating your own Telegram bot
+
+Simply go to https://t.me/botfather an follow the instructions. After creating your bot you will need the API key.
+The bot itself needs to be admin in your Telegram channel. 
+
 ## Installation
 
 > composer install
