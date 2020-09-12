@@ -9,6 +9,9 @@ use \Longman\TelegramBot\Request;
 
 class ExecuteMessage
 {
+    /**
+     * @throws \Exception
+     */
     public function execute()
     {
         try {

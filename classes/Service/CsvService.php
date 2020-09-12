@@ -25,12 +25,14 @@ class CsvService
      */
     public function setCsvData()
     {
+        if ( ! $handle = fopen($this->_file, 'r')) {
+            throw new \Exception('Failed opening file');
+        }
+
         $data = [];
 
-        if ($handle = fopen($this->_file, 'r')) {
-            while ($csv = fgetcsv($handle, 0, "\t")) {
-                $data[$csv[0]] = $csv;
-            }
+        while ($csv = fgetcsv($handle, 0, "\t")) {
+            $data[$csv[0]] = $csv;
         }
 
         return $data;

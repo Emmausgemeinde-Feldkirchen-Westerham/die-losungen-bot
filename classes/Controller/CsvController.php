@@ -19,8 +19,8 @@ class CsvController
     }
 
     /**
-     * @return mixed
-     * @throws Exception
+     * @return string
+     * @throws \Exception
      */
     public function view()
     {
@@ -43,13 +43,17 @@ EOF;
 
     /**
      * @return mixed
-     * @throws Exception
+     * @throws \Exception
      */
     public function getCurrentLosung()
     {
         $today = date('d.m.Y');
 
         $csv = $this->csvService->getCsvData();
+
+        if ( ! $csv[$today]) {
+            throw new \Exception('Failed parsing new Losung');
+        }
 
         return $csv[$today];
     }
