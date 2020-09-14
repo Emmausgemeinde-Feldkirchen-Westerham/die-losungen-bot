@@ -37,4 +37,4 @@ The CSV needs to be UTF8 encodes. Unfortunately it is not. So please run
 
 Create a cronjob on a daily basis e.g. everyday at 7a.m.
 
-* 7 * * * php /my/path/to/boradcast.php
+0 7 * * * php /my/path/to/boradcast.php
