@@ -23,7 +23,7 @@ class CsvService
      * @return array
      * @throws Exception
      */
-    public function setCsvData()
+    public function setCsvData() : array
     {
         if ( ! $handle = fopen($this->_file, 'r')) {
             throw new \Exception('Failed opening file');
@@ -41,7 +41,7 @@ class CsvService
     /**
      * @return array
      */
-    public function getCsvData()
+    public function getCsvData() : array
     {
         return $this->setCsvData();
     }

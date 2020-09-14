@@ -32,7 +32,7 @@ class ExecuteMessage
             ]);
 
             if ($result->isOk()) {
-                echo 'Message sent';
+                $result->getOk();
             } else {
                 $result->printError();
             }

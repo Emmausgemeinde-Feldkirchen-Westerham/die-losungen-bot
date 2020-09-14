@@ -22,7 +22,7 @@ class CsvController
      * @return string
      * @throws \Exception
      */
-    public function view()
+    public function view() : string
     {
         $losung = $this->getCurrentLosung();
 
@@ -42,10 +42,10 @@ EOF;
     }
 
     /**
-     * @return mixed
+     * @return array
      * @throws \Exception
      */
-    public function getCurrentLosung()
+    public function getCurrentLosung() : array
     {
         $today = date('d.m.Y');
 
