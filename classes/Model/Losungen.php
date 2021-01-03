@@ -53,8 +53,25 @@ class Losungen
     /**
      * @return string
      */
-    public function getFile()
+    public function getFile() : string
     {
         return $this->_file;
+    }
+
+    /**
+     * @return array
+     * @throws \Exception
+     */
+    public function getCurrentLosung() : array
+    {
+        $today = date('d.m.Y');
+
+        $csv = $this->getCsvData();
+
+        if ( ! $csv[$today]) {
+            throw new \Exception('Failed parsing new Losung');
+        }
+
+        return $csv[$today];
     }
 }

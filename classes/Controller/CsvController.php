@@ -2,20 +2,22 @@
 
 namespace AHoffmeyer\DieLosungenBot\Controller;
 
-use AHoffmeyer\DieLosungenBot\Service\CsvService;
+use AHoffmeyer\DieLosungenBot\Model\Losungen;
 
 class CsvController
 {
 
-    /** @var CsvService */
-    protected $csvService;
+    /** @var Losungen */
+    protected $losung;
 
     /**
      * CsvController constructor.
      */
     public function __construct()
     {
-        $this->csvService = new CsvService(__DIR__ .'/../../assets/Losungen_Free_'. date('Y') .'.csv');
+        $this->losung = new Losungen();
+
+        $this->losung->setFile(__DIR__ .'/../../assets/Losungen_Free_'. date('Y') .'.csv');
     }
 
     /**
@@ -24,7 +26,7 @@ class CsvController
      */
     public function view() : string
     {
-        $losung = $this->getCurrentLosung();
+        $losung = $this->losung->getCurrentLosung();
 
         $string = <<<EOF
 <b>Die Losung für $losung[1] den $losung[0]</b>
@@ -39,22 +41,5 @@ Brüdergemeine - <a href="https://www.losungen.de/die-losungen/">Die Losungen</
 EOF;
 
         return $string;
-    }
-
-    /**
-     * @return array
-     * @throws \Exception
-     */
-    public function getCurrentLosung() : array
-    {
-        $today = date('d.m.Y');
-
-        $csv = $this->csvService->csvData();
-
-        if ( ! $csv[$today]) {
-            throw new \Exception('Failed parsing new Losung');
-        }
-
-        return $csv[$today];
     }
 }
