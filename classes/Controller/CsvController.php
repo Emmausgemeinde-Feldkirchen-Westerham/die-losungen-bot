@@ -15,7 +15,7 @@ class CsvController
      */
     public function __construct()
     {
-        $this->csvService = new CsvService();
+        $this->csvService = new CsvService(__DIR__ .'/../../assets/Losungen_Free_'. date('Y') .'.csv');
     }
 
     /**
@@ -49,7 +49,7 @@ EOF;
     {
         $today = date('d.m.Y');
 
-        $csv = $this->csvService->getCsvData();
+        $csv = $this->csvService->csvData();
 
         if ( ! $csv[$today]) {
             throw new \Exception('Failed parsing new Losung');
