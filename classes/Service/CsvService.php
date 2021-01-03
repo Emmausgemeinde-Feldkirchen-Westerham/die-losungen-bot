@@ -4,19 +4,18 @@ namespace AHoffmeyer\DieLosungenBot\Service;
 
 class CsvService
 {
-    protected $_file;
+    /**
+     * @var string
+     */
+    protected $_file = '';
 
     /**
      * CsvService constructor.
-     * @throws Exception
+     * @throws \Exception
      */
     public function __construct()
     {
-        if ( ! file_exists(__DIR__ .'/../../assets/Losungen_Free_'. date('Y') .'.csv')) {
-            throw new Exception('File could not be found');
-        }
-
-        $this->_file = __DIR__ .'/../../assets/Losungen_Free_2020.csv';
+        $this->setFile(__DIR__ .'/../../assets/Losungen_Free_'. date('Y') .'.csv');
     }
 
     /**
@@ -25,7 +24,7 @@ class CsvService
      */
     public function setCsvData() : array
     {
-        if ( ! $handle = fopen($this->_file, 'r')) {
+        if ( ! $handle = fopen($this->getFile(), 'r')) {
             throw new \Exception('Failed opening file');
         }
 
@@ -44,6 +43,27 @@ class CsvService
     public function getCsvData() : array
     {
         return $this->setCsvData();
+    }
+
+    /**
+     * @param string $file
+     * @throws \Exception
+     */
+    public function setFile($file = '')
+    {
+        if ( ! file_exists($file)) {
+            throw new \Exception('Failed opening file');
+        }
+
+        $this->_file = $file;
+    }
+
+    /**
+     * @return string
+     */
+    public function getFile()
+    {
+        return $this->_file;
     }
 
 }
