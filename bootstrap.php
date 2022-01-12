@@ -6,16 +6,16 @@ use \AHoffmeyer\DieLosungenBot\ExecuteMessage;
 use \AHoffmeyer\DieLosungenBot\Controller\CsvController;
 
 // Enable .env usage
-#$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
-#$dotenv->load();
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+$dotenv->load();
 
 // test
-$losung = new CsvController();
-echo $losung->view();
+#$losung = new CsvController();
+#echo $losung->view();
 
 // Get current Losung
-#$telegram = new ExecuteMessage();
-#$telegram->execute();;
+$telegram = new ExecuteMessage();
+$telegram->execute();;
 
 
 

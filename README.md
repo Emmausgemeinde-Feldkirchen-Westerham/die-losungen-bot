@@ -25,16 +25,31 @@ Change _Losungen Free xxxx.csv_ to _Losungen_Free_xxxx.csv_
 
 Simply run. The script will send todays Losung to your channel
 
-> php broadcast.php 
+```bash
+> php broadcast.php
+``` 
 
 ## Important note
 
 The CSV needs to be UTF8 encodes. Unfortunately it is not. So please run
 
+```bash
 > iconv -f windows-1250 -t utf8 assets/Losungen\ Free\ 2020.csv -o Losungen_Free_2020.csv
+``` 
+
+## Makefile
+
+Makefile is included in your assets folder. Please provide your assets folder by editing the makefile.
+For easier usage just run:
+
+```bash
+> make update
+```
 
 ## Cronjob
 
 Create a cronjob on a daily basis e.g. everyday at 7a.m.
 
+```text
 0 7 * * * php /my/path/to/boradcast.php
+```
