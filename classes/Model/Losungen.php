@@ -11,10 +11,19 @@ class Losungen
     protected $_file = '';
 
     /**
-     * @return array
-     * @throws Exception
+     * @var array
      */
-    public function setCsvData() : array
+    protected $currentLosung;
+
+    /**
+     * @var array
+     */
+    protected $csvData;
+
+    /**
+     * @throws \Exception
+     */
+    public function setCsvData() : void
     {
         if ( ! $handle = fopen($this->getFile(), 'r')) {
             throw new \Exception('Failed opening file');
@@ -26,7 +35,7 @@ class Losungen
             $data[$csv[0]] = $csv;
         }
 
-        return $data;
+        $this->csvData = $data;
     }
 
     /**
@@ -34,7 +43,7 @@ class Losungen
      */
     public function getCsvData() : array
     {
-        return $this->setCsvData();
+        return $this->csvData;
     }
 
     /**
@@ -64,14 +73,21 @@ class Losungen
      */
     public function getCurrentLosung() : array
     {
-        $today = date('d.m.Y');
+        return $this->currentLosung;
+    }
 
+    /**
+     * @param string $date
+     * @throws \Exception
+     */
+    public function setCurrentLosung(string $date): void
+    {
         $csv = $this->getCsvData();
 
-        if ( ! $csv[$today]) {
+        if ( ! $csv[$date]) {
             throw new \Exception('Failed parsing new Losung');
         }
 
-        return $csv[$today];
+        $this->currentLosung = $csv[$date];
     }
 }

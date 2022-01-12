@@ -2,31 +2,27 @@
 
 namespace AHoffmeyer\DieLosungenBot\Controller;
 
-use AHoffmeyer\DieLosungenBot\Model\Losungen;
+use AHoffmeyer\DieLosungenBot\Factory\LosungenFactory;
 
 class CsvController
 {
-
-    /** @var Losungen */
-    protected $losung;
+    /** @var LosungenFactory */
+    private $losung;
 
     /**
      * CsvController constructor.
      */
     public function __construct()
     {
-        $this->losung = new Losungen();
-
-        $this->losung->setFile(__DIR__ .'/../../assets/Losungen_Free_'. date('Y') .'.csv');
+        $this->losung = new LosungenFactory();
     }
 
     /**
      * @return string
-     * @throws \Exception
      */
     public function view() : string
     {
-        $losung = $this->losung->getCurrentLosung();
+        $losung = $this->losung->getLosung();
 
         $string = <<<EOF
 <b>Die Losung für $losung[1] den $losung[0]</b>

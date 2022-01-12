@@ -15,8 +15,8 @@
         }
     },
     "require": {
-        "longman/telegram-bot": "^0.63.1",
-        "vlucas/phpdotenv": "^v5.1.0"
+        "longman/telegram-bot": "^0.75.0",
+        "vlucas/phpdotenv": "^v5.4.1"
     },
     "version": "0.2.1"
 }

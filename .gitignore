@@ -1,6 +1,7 @@
 /vendor
 /.idea
 /assets/*
+!/assets/makefile
 
 *.lock
 .env
