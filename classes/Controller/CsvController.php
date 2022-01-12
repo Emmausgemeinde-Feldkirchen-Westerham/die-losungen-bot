@@ -12,9 +12,11 @@ class CsvController
     /**
      * CsvController constructor.
      */
-    public function __construct()
+    public function __construct(
+        LosungenFactory $losungenFactory
+    )
     {
-        $this->losung = new LosungenFactory();
+        $this->losung = $losungenFactory;
     }
 
     /**
